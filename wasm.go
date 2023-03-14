@@ -7,10 +7,10 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-	
+
 	aa_static "github.com/aaronland/go-http-static"
 	"github.com/sfomuseum/go-http-rollup"
-	"github.com/sfomuseum/go-http-wasm/static"
+	"github.com/sfomuseum/go-http-wasm/v2/static"
 )
 
 // WASMOptions provides a list of JavaScript and CSS link to include with HTML output.
@@ -70,7 +70,7 @@ func AppendAssetHandlers(mux *http.ServeMux, opts *WASMOptions) error {
 		path = strings.TrimLeft(path, "/")
 		js_paths[idx] = path
 	}
-	
+
 	rollup_js_paths := map[string][]string{
 		"sfomuseum.wasm.rollup.js": js_paths,
 	}

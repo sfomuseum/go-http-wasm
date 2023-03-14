@@ -1,4 +1,4 @@
-module github.com/sfomuseum/go-http-wasm
+module github.com/sfomuseum/go-http-wasm/v2
 
 go 1.18
 
