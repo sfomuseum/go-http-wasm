@@ -2,8 +2,6 @@ package wasm
 
 import (
 	"fmt"
-	"io"
-	"log"
 	"net/http"
 	"net/url"
 	"strings"
@@ -21,20 +19,16 @@ type WASMOptions struct {
 	AppendJavaScriptAtEOF bool
 	RollupAssets          bool
 	Prefix                string
-	Logger                *log.Logger
 }
 
 // Return a *WASMOptions struct with default paths and URIs.
 func DefaultWASMOptions() *WASMOptions {
-
-	logger := log.New(io.Discard, "", 0)
 
 	opts := &WASMOptions{
 		JS: []string{
 			"/javascript/wasm_exec.js",
 			"/javascript/sfomuseum.wasm.js",
 		},
-		Logger: logger,
 	}
 
 	return opts
@@ -76,9 +70,8 @@ func AppendAssetHandlers(mux *http.ServeMux, opts *WASMOptions) error {
 	}
 
 	rollup_js_opts := &rollup.RollupJSHandlerOptions{
-		FS:     static.FS,
-		Paths:  rollup_js_paths,
-		Logger: opts.Logger,
+		FS:    static.FS,
+		Paths: rollup_js_paths,
 	}
 
 	rollup_js_handler, err := rollup.RollupJSHandler(rollup_js_opts)
