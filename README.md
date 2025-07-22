@@ -6,6 +6,10 @@ Go HTTP middleware package for bundling, serving and appending pointers to `wasm
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/sfomuseum/go-http-wasm.svg)](https://pkg.go.dev/github.com/sfomuseum/go-http-wasm)
 
+## Deprecation Notice
+
+This package has been deprecated and is no longer maintained. You should just use/load [sfomuseum/js-sfomuseum-golang-wasm](https://github.com/sfomuseum/js-sfomuseum-golang-wasm) in your code as an embeddable file instead.
+
 ## Motivation
 
 This is a simple Go HTTP middleware package for bundling, serving and appending pointers to `wasm_exec.js` which is required by web applications using WASM binaries derived from Go applications.
